@@ -15,7 +15,7 @@ class HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Projeto Teste"),
+        title: Text("Home"),
         actions: [
           CustomSwitch(),
         ],
@@ -24,23 +24,9 @@ class HomePageState extends State<HomePage> {
       body: Container(
         width: double.infinity,
         height: double.infinity,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text("Contador: $counter"),
-            CustomSwitch(),
-          ],
-        ),
+        
       ),
 
-      floatingActionButton: FloatingActionButton(
-        child: Icon(Icons.add),
-        onPressed: () {
-          setState(() {
-            counter++;
-          });
-        },
-      ),
     );
   }
 }
