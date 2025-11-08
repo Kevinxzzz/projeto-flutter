@@ -58,13 +58,16 @@ O projeto é dividido da seguinte forma:
 lib/
 │
 ├── main.dart # Arquivo principal do aplicativo
+
 ├── pages/
 │ ├── home_page.dart # Tela principal com a lista de tarefas
 │ └── add_task_page.dart # Tela para adicionar/editar tarefas
 │
+
 ├── models/
 │ └── task_model.dart # Modelo de dados da tarefa
 │
+
 └── services/
 └── storage_service.dart # Serviço responsável pelo armazenamento local
 
