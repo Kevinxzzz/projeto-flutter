@@ -126,8 +126,8 @@ O vídeo apresenta:
 ---
 
 ## 👨‍💻 Contribuidores
-- **Nome do Integrante 1** – RGM: XXXXXXXX  
-- **Nome do Integrante 2** – RGM: XXXXXXXX  
+- **Wolfgang** – RGM: 38492741  
+- **Kevin** – RGM: XXXXXXXX  
 
 ---
 
