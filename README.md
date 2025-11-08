@@ -125,7 +125,7 @@ O vídeo apresenta:
 
 ---
 
-## 👨‍💻 Contribuidores
+## 👨‍💻 Nome da Dupla:
 - **Wolfgang** – RGM: 38492741  
 - **Kevin** – RGM: XXXXXXXX  
 
