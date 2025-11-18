@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:teste_app/home_page.dart';
 
 class LoginPage extends StatefulWidget {
   @override
@@ -44,7 +45,23 @@ class _LoginPageState extends State<LoginPage> {
                 ),
               ),
               SizedBox(height: 15),
-              ElevatedButton(onPressed: () {}, child: Text("Login")),
+              ElevatedButton(
+                onPressed: () {
+                  if (email == "dev@gmail.com" && password == "123") {
+                    print("Login successful");
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => HomePage()
+                        ), 
+                    );
+                  }else {
+                    print("Login failed");
+                  }
+
+                }, 
+                child: Text("Login")
+                
+                ),
             ],
           ),
         ),
