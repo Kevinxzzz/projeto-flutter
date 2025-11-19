@@ -45,6 +45,26 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: "Password",
                   ),
                 ),
+              ),
+              SizedBox(height: 15),
+              ElevatedButton(
+                onPressed: () {
+                  if (email == "dev@gmail.com" && password == "123") {
+                    print("Login successful");
+                    Navigator.of(context).push(
+                      MaterialPageRoute(
+                        builder: (context) => HomePage()
+                        ), 
+                    );
+                  }else {
+                    print("Login failed");
+                  }
+
+                }, 
+                child: Text("Login")
+                
+                ),
+            ],
                 SizedBox(height: 15),
                 ElevatedButton(
                   onPressed: () {
