@@ -24,11 +24,13 @@ class HomePageState extends State<HomePage> {
 class CustomSwitch extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return Switch(
-      value: AppController.instance.isDarkTheme,
-      onChanged: (value) {
-        AppController.instance.changeTheme();
-      },
+    return IconButton(
+      icon: Icon(
+        AppController.instance.isDarkTheme
+            ? Icons.wb_sunny
+            : Icons.nightlight_round,
+      ),
+      onPressed: () => {AppController.instance.changeTheme()},
     );
   }
 }
@@ -53,7 +55,7 @@ class _TodoListState extends State<ToDoList> {
               labelText: "Adicionar Tarefa",
               border: OutlineInputBorder(),
               suffixIcon: IconButton(
-                icon: Icon(Icons.add),
+                icon: Icon(Icons.add, color: Colors.blue),
                 onPressed: () {
                   if (_controller.text.trim().isEmpty) return;
 
@@ -67,20 +69,47 @@ class _TodoListState extends State<ToDoList> {
           ),
           SizedBox(height: 20),
 
+          if (tasks.isEmpty)
+            Column(
+              children: [
+                Icon(Icons.inbox, size: 70, color: Colors.grey),
+                Text(
+                  "Nenhuma tarefa adicionada.",
+                  style: TextStyle(fontSize: 18, color: Colors.grey),
+                ),
+              ],
+            ),
           Expanded(
             child: ListView.builder(
               itemCount: tasks.length,
               itemBuilder: (context, index) {
                 return Card(
                   child: ListTile(
-                    title: Text(tasks[index]),
-                    trailing: IconButton(
-                      icon: Icon(Icons.delete, color: Colors.red),
-                      onPressed: () {
-                        setState(() {
-                          tasks.removeAt(index);
-                        });
-                      },
+                    title: Text(tasks[index], 
+                    style: TextStyle(fontSize: 18)
+                    ),
+
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: Icon(Icons.edit, color: Colors.blue),
+                          onPressed: () {
+                            setState(() {
+                              _controller.text = tasks[index];
+                              tasks.removeAt(index);
+                            });
+                          },
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.delete, color: Colors.red),
+                          onPressed: () {
+                            setState(() {
+                              tasks.removeAt(index);
+                            });
+                          },
+                        ),
+                      ],
                     ),
                   ),
                 );
