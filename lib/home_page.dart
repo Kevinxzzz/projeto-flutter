@@ -14,7 +14,6 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-
       appBar: AppBar(title: Text("to-do list"), actions: [CustomSwitch()]),
 
       body: ToDoList(),
@@ -32,8 +31,6 @@ class CustomSwitch extends StatelessWidget {
             : Icons.nightlight_round,
       ),
       onPressed: () => {AppController.instance.changeTheme()},
-      
-
     );
   }
 }
@@ -46,6 +43,7 @@ class ToDoList extends StatefulWidget {
 class _TodoListState extends State<ToDoList> {
   final TextEditingController _controller = TextEditingController();
   List<String> tasks = [];
+  List<bool> isChecked = [];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -64,6 +62,7 @@ class _TodoListState extends State<ToDoList> {
 
                   setState(() {
                     tasks.add(_controller.text.trim());
+                    isChecked.add(false);
                   });
                   _controller.clear();
                 },
@@ -88,9 +87,26 @@ class _TodoListState extends State<ToDoList> {
               itemBuilder: (context, index) {
                 return Card(
                   child: ListTile(
-                    title: Text(tasks[index], 
-                    style: TextStyle(fontSize: 18)
+                    leading: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: Icon(
+                            Icons.check,
+                            color: isChecked[index]
+                                ? Colors.green
+                                : const Color.fromARGB(255, 65, 65, 65),
+                          ),
+                          onPressed: () {
+                            setState(() {
+                              isChecked[index] = !isChecked[index];
+                            });
+                          },
+                        ),
+                      ],
                     ),
+
+                    title: Text(tasks[index], style: TextStyle(fontSize: 18)),
 
                     trailing: Row(
                       mainAxisSize: MainAxisSize.min,
@@ -101,6 +117,7 @@ class _TodoListState extends State<ToDoList> {
                             setState(() {
                               _controller.text = tasks[index];
                               tasks.removeAt(index);
+                              isChecked.removeAt(index);
                             });
                           },
                         ),
@@ -109,6 +126,7 @@ class _TodoListState extends State<ToDoList> {
                           onPressed: () {
                             setState(() {
                               tasks.removeAt(index);
+                              isChecked.removeAt(index);
                             });
                           },
                         ),
