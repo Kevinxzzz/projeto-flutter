@@ -14,6 +14,7 @@ class HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: AppBar(title: Text("to-do list"), actions: [CustomSwitch()]),
 
       body: ToDoList(),
@@ -31,6 +32,19 @@ class CustomSwitch extends StatelessWidget {
             : Icons.nightlight_round,
       ),
       onPressed: () => {AppController.instance.changeTheme()},
+      appBar: AppBar(
+        title: Text("Home"),
+        actions: [
+          CustomSwitch(),
+        ],
+      ),
+
+      body: Container(
+        width: double.infinity,
+        height: double.infinity,
+        
+      ),
+
     );
   }
 }
