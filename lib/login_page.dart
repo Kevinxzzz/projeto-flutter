@@ -22,6 +22,7 @@ class _LoginPageState extends State<LoginPage> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
+                // Campo de Email
                 TextField(
                   onChanged: (text) {
                     email = text;
@@ -35,6 +36,7 @@ class _LoginPageState extends State<LoginPage> {
 
                 SizedBox(height: 15),
 
+                // Campo de Senha
                 TextField(
                   onChanged: (text) {
                     password = text;
@@ -45,27 +47,10 @@ class _LoginPageState extends State<LoginPage> {
                     labelText: "Password",
                   ),
                 ),
-              ),
-              SizedBox(height: 15),
-              ElevatedButton(
-                onPressed: () {
-                  if (email == "dev@gmail.com" && password == "123") {
-                    print("Login successful");
-                    Navigator.of(context).push(
-                      MaterialPageRoute(
-                        builder: (context) => HomePage()
-                        ), 
-                    );
-                  }else {
-                    print("Login failed");
-                  }
 
-                }, 
-                child: Text("Login")
-                
-                ),
-            ],
                 SizedBox(height: 15),
+
+                // Botão de Login
                 ElevatedButton(
                   onPressed: () {
                     if (email == "dev@gmail.com" && password == "123") {
@@ -73,7 +58,7 @@ class _LoginPageState extends State<LoginPage> {
                         MaterialPageRoute(builder: (context) => HomePage()),
                       );
                     } else {
-                      print("Login Failed");
+                      print("Login failed");
                     }
                   },
                   child: Text("Login"),

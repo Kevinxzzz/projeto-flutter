@@ -32,18 +32,7 @@ class CustomSwitch extends StatelessWidget {
             : Icons.nightlight_round,
       ),
       onPressed: () => {AppController.instance.changeTheme()},
-      appBar: AppBar(
-        title: Text("Home"),
-        actions: [
-          CustomSwitch(),
-        ],
-      ),
-
-      body: Container(
-        width: double.infinity,
-        height: double.infinity,
-        
-      ),
+      
 
     );
   }
