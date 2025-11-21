@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:teste_app/app_controller.dart';
-import 'package:teste_app/home_page.dart';
-import 'package:teste_app/login_page.dart';
+import 'package:teste_app/controllers/app_controller.dart';
+import 'package:teste_app/pages/home_page.dart';
+import 'package:teste_app/pages/login_page.dart';
 import 'package:teste_app/main.dart';
 
 class AppWidget extends StatelessWidget {
@@ -13,7 +13,9 @@ class AppWidget extends StatelessWidget {
         return MaterialApp(
           theme: ThemeData(
             primarySwatch: Colors.cyan,
-            brightness: AppController.instance.isDarkTheme ? Brightness.light : Brightness.dark,
+            brightness: AppController.instance.isDarkTheme
+                ? Brightness.light
+                : Brightness.dark,
           ),
           home: LoginPage(),
         );
