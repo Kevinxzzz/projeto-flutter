@@ -72,9 +72,6 @@ class _TodoListState extends State<ToDoList> {
     );
   }
 
-  // -------------------------------
-  //     BUILDER DO ITEM ANIMADO
-  // -------------------------------
   Widget _buildItem(int index, Animation<double> animation) {
     return FadeTransition(
       opacity: animation,
@@ -99,7 +96,6 @@ class _TodoListState extends State<ToDoList> {
             trailing: Row(
               mainAxisSize: MainAxisSize.min,
               children: [
-                // EDITAR
                 IconButton(
                   icon: Icon(Icons.edit, color: Colors.blue),
                   onPressed: () {
@@ -129,9 +125,6 @@ class _TodoListState extends State<ToDoList> {
     );
   }
 
-  // -------------------------------
-  //     REMOVER COM ANIMAÇÃO
-  // -------------------------------
   void _removeItemAnimated(int index) {
     final removedTask = tasks[index];
     final removedCheck = isChecked[index];
